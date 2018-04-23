@@ -2,14 +2,18 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Techbench</title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 	</head>
 	<body>
 		<nav>
 			<a href="/main">Home</a>
 			<a href="/projects">Projects</a>
 			<a href="/about">About</a>
-			<div class="auth" style="float: right;">
+			<div class="auth">
 				<a href="/login">login</a>
 				<a href="/register">register</a>
 			</div>
