@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Techbench</title>
-		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-	</head>
-	<body>
-		<nav>
-			<a href="/main">Home</a>
-			<a href="/projects">Projects</a>
-			<a href="/about">About</a>
-			<div class="auth">
-				<a href="/login">login</a>
-				<a href="/register">register</a>
-			</div>
-		</nav>
-		<hr>
-		<main>
-			{% block content %}
-			{% endblock %}
-		</main>
-		<hr>
-		<footer>
 
-		</footer>
-	</body>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Techbench</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+	<nav>
+		<div class="container">
+			<div class="links logo"><a href=""><img src="{{url_for('static', filename='img/Techbench.png')}}"></i></a></div>
+			<div class="links"></div>
+			<div class="links"></div>
+			<div class="links"></div>
+			<div class="links"></div>
+		</div>
+	</nav>
+
+	</div>
+	<main>
+		{% block content %} {% endblock %}
+	</main>
+	<footer>
+
+	</footer>
+</body>
+
 </html>

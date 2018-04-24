@@ -1,0 +1,26 @@
+$topnav: rgba(115, 49, 237, 0.8);
+$body: rgba(87,228,199,0.3);
+$footer: rgb(87, 228, 199);
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 75px;
+  box-shadow: 10px black;
+  background: linear-gradient($topnav, rgba(0,0,0,0))
+}
+
+body {
+  height: 100%;
+  height: 1000px;
+  background: linear-gradient($body, $footer)
+}
+
+.logo a img  {
+  height: 30px;
+}
+
+.test {
+  height: 100px; background-color: pink
+}
