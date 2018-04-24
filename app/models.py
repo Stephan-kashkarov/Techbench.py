@@ -27,7 +27,7 @@ class Post(db.Model):
 	post_id = db.Column(db.Integer, primary_key=True, nullable=False)
 	title = db.Column(db.String(50))
 	body = db.Column(db.String(200))
-	user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'))
+	user_id = db.relationship(db.Integer, db.ForeignKey('User.user_id'))
 
 	def __repr__(self):
 		return "<Post: {} authoured by {}>".format(self.title, self.user_id)
