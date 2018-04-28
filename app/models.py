@@ -4,9 +4,11 @@ from app import db
 from app import login
 from flask_login import UserMixin
 
+
 @login.user_loader
 def load_user(id):
 	return User.query.get(int(id))
+
 
 class User(UserMixin, db.Model):
 	user_id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -23,10 +25,12 @@ class User(UserMixin, db.Model):
 	def check_pass(self, password):
 		return check_password_hash(self.pass_hash, password)
 
+
 class Post(db.Model):
 	post_id = db.Column(db.Integer, primary_key=True, nullable=False)
 	title = db.Column(db.String(50))
 	body = db.Column(db.String(200))
+	timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 	user_id = db.relationship(db.Integer, db.ForeignKey('User.user_id'))
 
 	def __repr__(self):
