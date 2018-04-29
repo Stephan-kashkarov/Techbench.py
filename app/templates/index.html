@@ -7,9 +7,9 @@
 	<title>Techbench</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+	<script src="{{ url_for('static', filename='js/main.js')}}"></script> -->
 
 	</script>
 </head>
@@ -17,15 +17,45 @@
 <body>
 	<nav>
 		<div class="container">
-			<div class="links logo"><a href=""><img src="{{url_for('static', filename='img/Techbench.png')}}"></i></a></div>
-			<div class="links"></div>
-			<div class="links"></div>
-			<div class="links"></div>
-			<div class="links"></div>
+			<div class="links logo">
+				<a href="{{url_for('home')}}">
+					<img src="{{url_for('static', filename='img/Techbench.png')}}">
+				</a>
+			</div>
+			<div class="links">
+				<a href="">
+
+				</a>
+			</div>
+			<div class="links">
+				<a href="#">
+
+				</a>
+			</div>
+			<div class="auth">
+
+				<div class="links">
+					<a href="{{url_for('login')}}">login</a>
+				</div>
+				<div class="links">
+					<a href="url_for('register')">Register</a>
+				</div>
+				<div class="links">
+					<a href="url_for('logout')">Logout</a>
+				</div>
+			</div>
 		</div>
 	</nav>
 
-	</div>
+	{% with messeges = get_flashed_messages() %}
+	{% if messeges %}
+	<ul>
+		{% for messege in messeges %}
+		<li>{{ messege }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
 	<main>
 		{% block content %} {% endblock %}
 	</main>
