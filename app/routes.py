@@ -10,7 +10,7 @@ from werkzeug.urls import url_parse
 @app.route('/')
 @app.route('/main')
 def main():
-	return render_template('main.html', version=version)
+	return render_template('main.html', version=version, )
 
 
 @app.route('/login')
@@ -30,7 +30,7 @@ def login():
 		return redirect(next_page)
 	return render_template('index.html', form=Form)
 
-
+@login_required
 @app.route('/logout')
 def logout():
 	login_user()
@@ -51,3 +51,8 @@ def register():
 		flash("User {} is now registered, Congrats!".format(form.username.data))
 		return url_for("login")
 	return render_template("regester.html", form=Form)
+
+
+@app.route("/user/<username>/email")
+def email():
+	return render_template('email.html')

@@ -7,6 +7,7 @@
 	<title>Techbench</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/format.css') }}">
 	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="{{ url_for('static', filename='js/main.js')}}"></script> -->
@@ -22,11 +23,15 @@
 					<img src="{{url_for('static', filename='img/Techbench.png')}}">
 				</a>
 			</div>
+			{% if user %}
+			{% if user.is_authenticated %}
 			<div class="links">
-				<a href="">
-
+				<a href="{{url_for('email')}}">
+					email
 				</a>
 			</div>
+			{% endif %}
+			{% endif %}
 			<div class="links">
 				<a href="#">
 
@@ -46,7 +51,6 @@
 			</div>
 		</div>
 	</nav>
-
 	{% with messeges = get_flashed_messages() %}
 	{% if messeges %}
 	<ul>
@@ -57,7 +61,8 @@
 	{% endif %}
 	{% endwith %}
 	<main>
-		{% block content %} {% endblock %}
+		{% block content %}
+		{% endblock %}
 	</main>
 	<footer>
 
